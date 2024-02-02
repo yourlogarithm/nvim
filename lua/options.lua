@@ -27,6 +27,8 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "140"
 
+vim.opt.scrolloff = 999
+
 vim.cmd.colorscheme 'gruvbox'
 
 vim.cmd "set list"
