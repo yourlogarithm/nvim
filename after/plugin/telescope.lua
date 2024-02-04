@@ -7,6 +7,33 @@ end
 
 local telescope = require('telescope')
 telescope.setup({
+    extensions = {
+        file_browser = {
+            theme = 'ivy',
+            hijack_netrw = true,
+            hidden = true,
+            mappings = {
+                ["i"] = {
+                    ["<F8>"] = function(bufnr)
+                        vim.cmd("stopinsert")
+                        local confirm = vim.fn.input("Delete this file? Type 'yes' to confirm: ")
+                        if confirm == "yes" then
+                          local file_to_delete = vim.fn.expand("%:p")
+                          if file_to_delete ~= "" then
+                            vim.fn.delete(file_to_delete)
+                            print("Deleted file: " .. file_to_delete)
+                            vim.cmd(bufnr .. "bd!")
+                          else
+                            print("No file found under the cursor.")
+                          end
+                        else
+                          print("File deletion cancelled.")
+                        end
+                    end
+                }
+            }
+        }
+    },
     pickers = {
         find_files = {
             hidden = true,
@@ -14,7 +41,7 @@ telescope.setup({
                 n = {
                     ["cd"] = cd
                 }
-            }
+            },
         },
         git_files = {
             hidden = true,
@@ -28,6 +55,7 @@ telescope.setup({
 })
 
 telescope.load_extension("projects")
+telescope.load_extension("file_browser")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

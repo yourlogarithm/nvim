@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>fb", '<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>')
 
 vim.keymap.set({"i", "n"}, "<F2>", vim.cmd.w)
 vim.keymap.set({"i", "n"}, "<F4>", vim.cmd.q)
