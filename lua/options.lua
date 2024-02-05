@@ -33,3 +33,6 @@ vim.cmd.colorscheme 'gruvbox'
 
 vim.cmd "set list"
 vim.cmd "set lcs+=space:·"
+
+vim.api.nvim_command('au BufRead,BufNewFile *.falang set filetype=falang')
+vim.api.nvim_command('au BufRead,BufNewfile *.smali set filetype=smali')
