@@ -26,7 +26,6 @@ lsp.setup()
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'rust_analyzer',
         'pyright',
         'lua_ls'
     },
@@ -37,7 +36,6 @@ require('mason-lspconfig').setup({
 
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup({})
-lspconfig.rust_analyzer.setup({})
 lspconfig.pyright.setup({})
 
 local cmp = require('cmp')
