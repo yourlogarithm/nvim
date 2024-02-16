@@ -55,7 +55,7 @@ telescope.setup({
 })
 
 telescope.load_extension("projects")
-telescope.load_extension("file_browser")
+-- telescope.load_extension("file_browser")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
